@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
     public int userInput(int n){
        return 0;
     }
-    @GetMapping("/roll-dice/n")
+    @GetMapping("/roll-dice/{n}")
    @ResponseBody
-   public int diceOne(@RequestParam(name = "aNumber") int n) {
+   public int diceOne(@PathVariable int n) {
       return 0;
     }
 
