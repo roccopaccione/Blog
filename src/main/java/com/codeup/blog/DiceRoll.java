@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  class DiceRoll {
     @GetMapping("/roll-dice")
     @ResponseBody
-    public int userInput(int n){
-       return 0;
+    public String userInput(int x){
+       return "Rolled number is: 5";
     }
     @GetMapping("/roll-dice/{n}")
    @ResponseBody
-   public int diceOne(@PathVariable int n) {
-      return 0;
+   public String diceOne(@RequestParam(name = "aNumber") int n) {
+      return "You're guessed number is: " + n;
     }
 
 }
