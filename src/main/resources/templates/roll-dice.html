@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('Dice-Roll')">
     <meta charset="UTF-8">
     <title>Dice Roll</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: nav"></nav>
 
-<h1>Roll the dice!</h1>
+<header th:replace="partials/header :: ('Roll the Dice!')"></header>
 
 
 <h5>Guess the number the die lands on!</h5>
@@ -31,5 +32,7 @@
     You didn't guess correctly!
 </h4>
 
+
+<th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>

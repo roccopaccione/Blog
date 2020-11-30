@@ -1,4 +1,4 @@
-package com.codeup.blog;
+package com.codeup.blog.controllers;
 
 import org.springframework.lang.UsesSunHttpServer;
 import org.springframework.stereotype.Controller;
