@@ -18,6 +18,7 @@ public class Post {
     @Column(nullable = false)
     private String author;
 
+
     public Post() {}
 
     public Post (long id, String title, String body, String author) {

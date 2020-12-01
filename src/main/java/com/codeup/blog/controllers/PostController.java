@@ -1,6 +1,7 @@
 package com.codeup.blog.controllers;
 
 import com.codeup.blog.models.Post;
+import com.codeup.blog.repository.PostRepository;
 import org.apache.catalina.LifecycleState;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +15,15 @@ import java.util.List;
 
 @Controller
 public class PostController {
+
+    private final PostRepository postDao;
+
+    public PostController(PostRepository postDao) {
+        this.postDao = postDao;
+    }
     @GetMapping("/posts")
     public String indexPage(Model model){
-        List<Post> posts = new ArrayList<>();
-        posts.add(new Post("Post 1", "Some cool stuff 1."));
-        posts.add(new Post("Post 2", "Some cool stuff 2."));
-        posts.add(new Post("Post 3", "Some cool stuff 3."));
-
-        model.addAttribute("posts", posts);
+        model.addAttribute("posts", postDao);
         return "posts/index";
     }
     @GetMapping("/posts/{id}")
