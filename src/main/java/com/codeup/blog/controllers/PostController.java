@@ -64,6 +64,13 @@ public class PostController {
         editedPost.setTitle(title);
         editedPost.setBody(body);
         postDao.save(editedPost);
-        return "redirect:/posts/" + postDao.getId(id);
+        return "redirect:/posts";
+    }
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id) {
+        postDao.deleteById(id);
+        return "redirect:/posts";
+
     }
 }
