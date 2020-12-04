@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Create')">
+<head th:replace="partials/head :: head('What\'s on your mind?')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <nav th:replace="partials/navbar :: nav"></nav>
 <header th:replace="partials/header :: ('Welcome to my blog!')"></header>
-<main>
-    <div class="card">
-        <h2 th:text="${post.title}"></h2>
-        <p th:text="${post.body}"></p>
-    </div>
+<main class="container">
+
+    <form th:action="@{/posts/create}" th:method="post">
+        Title:
+        <input name="title" />
+        <br />
+        Body:
+        <input name="body" />
+        <br />
+        <input type="submit" />
+    </form>
+
 </main>
+
 <th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>

@@ -30,13 +30,13 @@ public class PostController {
     public String showPage(@PathVariable long id, Model model){
         Post post = new Post("Post" + id, "Some cool new stuff" + id + ".");
         Post postDb = postDao.getOne(id);
-        model.addAttribute("post", post);
+        model.addAttribute("post", postDb);
         return "posts/show";
     }
 
     @GetMapping("posts/create")
     public String viewCreatePostForm(){
-        return "/posts/new";
+        return "/posts/show";
     }
 
     @PostMapping("posts/create")
