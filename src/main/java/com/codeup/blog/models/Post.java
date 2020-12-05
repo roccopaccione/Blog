@@ -18,17 +18,23 @@ public class Post {
     @Column(nullable = false)
     private String author;
 
+    @OneToOne
+    private User owner;
+
 
     public Post() {}
 
-    public Post (long id, String title, String body, String author) {
+    public Post (long id, String title, String body, User owner) {
         this.id = id;
         this.title = title;
         this.body = body;
-        this.author = author;
+        this.owner = owner;
     }
 
-    public Post(String s, String s1) {
+    public Post(String title, String body, User owner) {
+        this.title = title;
+        this.body = body;
+        this.owner = owner;
     }
 
     public long getId() {
