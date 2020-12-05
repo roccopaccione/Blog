@@ -7,11 +7,12 @@
 <body>
     <nav th:replace="partials/navbar :: nav"></nav>
     <header th:replace="partials/header :: ('Welcome to my blog!')"></header>
+
         <main class="container">
             <div class="card" th:each="post : ${posts}">
                 <h3 class="text-center" th:text="${post.title}"></h3>
                 <p th:text="${post.body}"></p>
-                <h5 th:text="${post.author}"></h5>
+                <h5 th:text="${post.owner.username}"></h5>
             </div>
         </main>
 
