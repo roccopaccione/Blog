@@ -8,11 +8,11 @@
     <nav th:replace="partials/navbar :: nav"></nav>
     <header th:replace="partials/header :: ('Welcome to my blog!')"></header>
 
-        <main class="container">
+        <main class="container" th:object="${post}">
             <div class="card" th:each="post : ${posts}">
-                <h3 class="text-center" th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
-                <h5 th:text="${post.owner.username}"></h5>
+                <h3 class="text-center" th:field="*{title}"></h3>
+                <p th:field="*{body}"></p>
+                <h5 th:field="*{owner}"></h5>
             </div>
         </main>
 
