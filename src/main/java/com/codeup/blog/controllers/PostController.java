@@ -38,19 +38,17 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    public String viewCreatePostForm(){
-        return "/posts/create";
+    public String createPostForm(Model vModel) {
+        vModel.addAttribute("post", new Post());
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String submitCreatePost(
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "body") String body
-    ){
+    public String createPost(@ModelAttribute Post postToBeSaved) {
         User user = userDao.getOne(1L);
-        Post newPost = new Post(title, body, user);
-        Post postDb = postDao.save(newPost);
-        return "redirect:/posts/" + postDb.getId();
+        postToBeSaved.setOwner(user);
+        Post dbPost = postDao.save(postToBeSaved);
+        return "redirect:/posts/" + dbPost.getId();
     }
 
     @GetMapping("/posts/{id}/edit")
@@ -59,15 +57,10 @@ public class PostController {
         return "/posts/edit";
     }
     @PostMapping("/posts/{id}/edit")
-    public String editPost(
-            @PathVariable long id,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "body") String body
-    ){
-        Post editedPost = postDao.getOne(id);
-        editedPost.setTitle(title);
-        editedPost.setBody(body);
-        postDao.save(editedPost);
+    public String editPost(@ModelAttribute Post postToBeUpdated){
+        User user = userDao.getOne(1L);
+        postToBeUpdated.setOwner(user);
+        postDao.save(postToBeUpdated);
         return "redirect:/posts";
     }
 

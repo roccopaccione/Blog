@@ -46,8 +46,8 @@ public class Post {
     public String getBody() {
         return body;
     }
-    public String getAuthor() {
-        return author;
+    public User getOwner() {
+        return owner;
     }
 
     public void setId(long id) {
@@ -59,7 +59,8 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
+
 }
