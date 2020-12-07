@@ -70,4 +70,17 @@ public class PostController {
         return "redirect:/posts";
 
     }
+
+    @GetMapping("/rick-roll")
+    public String rickRoll() {
+        // redirecting to an absolute url
+        return "redirect:https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
+    @GetMapping("/redirect-me")
+    public String redirect() {
+        // a relative (to the base domain) redirect, usually you will use this
+        // version
+        // Will redirect the users to `/about`
+        return "redirect:/about";
+    }
 }
