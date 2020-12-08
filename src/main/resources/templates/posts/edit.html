@@ -12,12 +12,12 @@
             <h2 th:text="${post.title}"></h2>
             <p th:text="${post.body}"></p>
         </div>
-    <!--        Modal Trigger-->
+    <!--       Edit Modal Trigger-->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
             Edit
         </button>
     </main>
-    <!--        Modal       -->
+    <!--        Edit Modal       -->
     <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" th:object="${post}">
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
