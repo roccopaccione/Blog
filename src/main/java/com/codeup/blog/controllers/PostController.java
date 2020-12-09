@@ -57,7 +57,7 @@ public class PostController {
     @GetMapping("/posts/{id}/edit")
     public String viewEditForm(@PathVariable long id, Model viewModel) {
         viewModel.addAttribute("post", postDao.getOne(id));
-        return "/posts/edit";
+        return "posts/edit";
     }
     @PostMapping("/posts/{id}/edit")
     public String editPost(@ModelAttribute Post postToBeUpdated){
