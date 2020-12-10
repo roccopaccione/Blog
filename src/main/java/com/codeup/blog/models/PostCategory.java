@@ -17,12 +17,11 @@ public class PostCategory {
     private List<Post> posts;
 
     public PostCategory(){
-
     }
     public PostCategory(long id, String name, List<Post> posts) {
         this.id = id;
         this.name = name;
-
+        this.posts = posts;
     }
     public PostCategory(String name, List<Post> posts) {
         this.name = name;
