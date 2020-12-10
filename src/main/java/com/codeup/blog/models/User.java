@@ -58,8 +58,8 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setUsername(String Username) {
-        this.username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public void setPassword(String password) {
         this.password = password;
